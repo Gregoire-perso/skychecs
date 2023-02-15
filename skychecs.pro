@@ -11,7 +11,7 @@ CONFIG += c++17
 # Location of build files
 OBJECTS_DIR = build/objects
 MOC_DIR = build/moc
-QMAKE_CLEAN = $(TARGET)
+QMAKE_CLEAN += $(TARGET) Makefile
 
 # Compilation flags
 QMAKE_CXX = g++
@@ -20,8 +20,8 @@ QMAKE_LFLAGS_DEBUG += -g -fsanitize=address
 INCLUDEPATH = src/headers
 
 # Source files
-SOURCES += src/*.cpp
-HEADERS += src/headers/*.h
+SOURCES += $$system(find ./src/ -type f -name "*.cpp")
+HEADERS += $$system(find ./src/ -type f -name "*.h")
 FORMS += src/forms/*.ui
 
 # Default rules for deployment.
