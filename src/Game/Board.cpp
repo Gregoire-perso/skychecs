@@ -2,8 +2,6 @@
 #include "Cell.h"
 #include "BasePiece.h"
 
-using namespace Cell;
-
 Board::Board() {
     for(int i = 0; i < m_boardSize * m_boardSize; i++) {
         m_board[i] = { i };
@@ -29,7 +27,7 @@ bool Board::hasWon(ColorPlayer color) {
     for (Cell cell : m_board) {
         if (cell.piece.getColor() == other) {
             if (cell.piece.type == King) {
-                if (cell.piece.possibleMove().size == 0)
+                if (cell.piece.possibleMove().empty())
                     return true;
 
             return false;
