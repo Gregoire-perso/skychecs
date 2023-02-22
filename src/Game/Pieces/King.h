@@ -1,19 +1,22 @@
 #ifndef KING_H
 #define KING_H
-#include "BasePieces.h"
-#include "Board.h"
+#include <vector>
 #include "Cell.h"
+#include "Board.h"
 
-class King: public BasePieces
-{
-private:
+class King {
+protected: 
+    Board *m_board;
+    Cell *m_currentCell;
     bool checkMove(int new_pos);
+    PlayerColor m_color;
 
 public:
-    King(int position, PlayerColor color) : BasePieces(position, color) {};
-    Cell getCell();
+    King(Cell *cell, Board *board, PlayerColor color);
+    ~King();
     bool move(int new_pos);
-    int *possibleMoves();
+    std::vector<int> *possibleMoves();
+    const PieceType type = King;
 }
 
 #endif
