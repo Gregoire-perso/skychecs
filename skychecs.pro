@@ -17,7 +17,6 @@ QMAKE_CLEAN += $(TARGET) Makefile
 QMAKE_CXX = g++
 QMAKE_CXXFLAGS_DEBUG += -g -fsanitize=address
 QMAKE_LFLAGS_DEBUG += -g -fsanitize=address
-INCLUDEPATH = src/headers
 
 # Source files
 SOURCES += $$system(find ./src/ -type f -name "*.cpp")
