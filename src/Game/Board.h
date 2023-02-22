@@ -1,6 +1,7 @@
 #ifndef BOARD_H
 #define BOARD_H
 #include "Cell.h"
+#include "Pieces/BasePiece.h"
 
 enum PlayerColor { White, Black };
 

@@ -1,7 +1,4 @@
 #include "Board.h"
-#include "Cell.h"
-#include "BasePiece.h"
-#include "King.h"
 
 Board::Board() {
     PieceType firstLine = { Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook }

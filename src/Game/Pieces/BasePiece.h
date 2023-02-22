@@ -1,8 +1,8 @@
 #ifndef BASE_PIECES_H
 #define BASE_PIECES_H
 #include <vector>
-#include "Cell.h"
-#include "Board.h"
+#include "../Cell.h"
+#include "../Board.h"
 
 enum PieceType: char { King = 'K', Queen = 'Q', Bishop = 'B', 
                        Knight = 'k', Rook = 'R', Pawn = 'P' }

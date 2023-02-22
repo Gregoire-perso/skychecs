@@ -1,6 +1,4 @@
 #include "Cell.h"
-#include "Board.h"
-#include "BasePiece.h"
 
 Cell::Cell(Board *board, int position) {
     m_board = board;

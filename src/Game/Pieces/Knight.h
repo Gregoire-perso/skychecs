@@ -1,8 +1,8 @@
 #ifndef KING_H
 #define KING_H
 #include <vector>
-#include "Cell.h"
-#include "Board.h"
+#include "../Cell.h"
+#include "../Board.h"
 
 class Knight : public BasePiece {
 protected: 

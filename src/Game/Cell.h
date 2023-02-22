@@ -1,7 +1,14 @@
 #ifndef CELL_H
 #define CELL_H
-#include "BasePiece.h"
 #include "Board.h"
+#include "Pieces/BasePiece.h"
+#include "Pieces/King.h"
+#include "Pieces/Queen.h"
+#include "Pieces/Bishop.h"
+#include "Pieces/Knight.h"
+#include "Pieces/Rook.h"
+#include "Pieces/Pawn.h"
+
 
 // Free and Busy states are obvious
 enum CellState { Free, Busy };
