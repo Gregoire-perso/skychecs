@@ -4,7 +4,7 @@
 #include "Cell.h"
 #include "Board.h"
 
-class King {
+class King : public BasePiece {
 protected: 
     Board *m_board;
     Cell *m_currentCell;
