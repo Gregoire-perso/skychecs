@@ -13,9 +13,32 @@ Cell::Cell(Board *board, int position, PieceType type, PlayerColor color) {
     m_position = position;
     m_state = Busy;
     switch(type) {
+        case TKing:
+            m_piece = new King(this, board, color);
+            break;
+
+        case TQueen:
+            m_piece = new Queen(this, board, color);
+            break;
+
+        case TBishop:
+            m_piece = new Bishop(this, board, color);
+            break;
+
+        case TKnight:
+            m_piece = new Knight(this, board, color);
+            break;
+
+        case TRook:
+            m_piece = new Rook(this, board, color);
+            break;
+
+        case TPawn:
+            m_piece = new Pawn(this, board, color);
+            break;
+
         default:
             // Throw error unknown type
-            m_piece = new King(this, board, color);
             break;
     }
 }

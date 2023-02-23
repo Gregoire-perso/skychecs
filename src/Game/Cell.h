@@ -2,11 +2,11 @@
 #define CELL_H
 #include "Enums.h"
 #include "Pieces/King.h"
-//#include "Pieces/Queen.h"
-//#include "Pieces/Bishop.h"
-//#include "Pieces/Knight.h"
-//#include "Pieces/Rook.h"
-//#include "Pieces/Pawn.h"
+#include "Pieces/Queen.h"
+#include "Pieces/Bishop.h"
+#include "Pieces/Knight.h"
+#include "Pieces/Rook.h"
+#include "Pieces/Pawn.h"
 
 class Cell {
 private:

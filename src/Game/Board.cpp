@@ -45,7 +45,7 @@ bool Board::hasWon(PlayerColor color) {
     PlayerColor other = color == White ? Black : White;
     for (Cell *cell : m_board) {
         if (cell->getPiece()->getColor() == other) {
-            if (cell->getPiece()->type == TKing)
+            if (cell->getPiece()->getType() == TKing)
                 if (cell->getPiece()->possibleMoves()->empty())
                     return true;
 
@@ -68,7 +68,7 @@ void Board::printBoard() {
                 std::cout << "|   ";
 
             else
-                std::cout << "| " << m_board[i * m_boardSize + j]->getPiece()->type
+                std::cout << "| " << m_board[i * m_boardSize + j]->getPiece()->getType()
                     << " ";
         }
 

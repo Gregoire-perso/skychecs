@@ -5,6 +5,7 @@
 
 class BasePiece {
 protected: 
+    PieceType m_type;
     Board *m_board;
     Cell *m_cell;
     virtual bool checkMove(int new_pos) = 0;
@@ -17,7 +18,7 @@ public:
     virtual bool move(int new_pos) = 0;
     virtual std::vector<int> *possibleMoves() = 0;
     PlayerColor getColor() { return m_color; };
-    const PieceType type = TKing;
+    PieceType getType() { return m_type; };
 };
 
 #endif

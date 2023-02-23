@@ -1,17 +1,17 @@
-#include "King.h"
+#include "Queen.h"
 #include "../Board.h"
 #include "../Cell.h"
 
-King::King(Cell *cell, Board *board, PlayerColor color) 
+Queen::Queen(Cell *cell, Board *board, PlayerColor color) 
 : BasePiece(cell, board, color) {
-    m_type = TKing;
+    m_type = TQueen;
 }
 
-bool King::checkMove(int new_pos) {
+bool Queen::checkMove(int new_pos) {
     return true;
 }
 
-bool King::move(int new_pos) {
+bool Queen::move(int new_pos) {
     if (checkMove(new_pos)) {
         Cell *next_cell = m_board->getCell(new_pos);
         if (next_cell->getState() == Busy && next_cell->getPiece()->getColor() == m_color)
@@ -29,7 +29,7 @@ bool King::move(int new_pos) {
 }
 
 
-std::vector<int> *King::possibleMoves() {
+std::vector<int> *Queen::possibleMoves() {
     return 0;
 }
 
