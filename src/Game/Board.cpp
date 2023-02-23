@@ -1,7 +1,7 @@
 #include "Board.h"
 
 Board::Board() {
-    PieceType firstLine = { Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook }
+    PieceType firstLine[] = { TRook, TKnight, TBishop, TQueen, TKing, TBishop, TKnight, TRook };
     
     int i;
     
@@ -11,7 +11,7 @@ Board::Board() {
     }
 
     for(; i < 2 * m_boardSize; i++) {
-        m_board[i] = new Cell(this, i, Pawn, Black);
+        m_board[i] = new Cell(this, i, TPawn, Black);
     }
 
     // Init empty lines
@@ -21,11 +21,11 @@ Board::Board() {
 
     // Init white lines
     for(; i < (m_boardSize - 1) * m_boardSize; i++) {
-        m_board[i] = new Cell(this, i, Pawn, White);
+        m_board[i] = new Cell(this, i, TPawn, White);
     }
 
     for(; i < m_boardSize * m_boardSize; i++) {
-        m_board[i] = new Cell(this, i, firstLine[-(i - 87)], White);
+        m_board[i] = new Cell(this, i, firstLine[-(i - 63)], White);
     }
 }
 
@@ -34,19 +34,19 @@ Cell *Board::getCell(int position) {
 }
 
 bool Board::moveCell(int before, int after) {
-    if (m_board[before]->getState() != Busy) {
+    if (m_board[before]->getState() != Busy)
         return false;
 
     else
         return m_board[before]->getPiece()->move(after);
 }
 
-bool Board::hasWon(ColorPlayer color) {
-    ColorPlayer other = color == White ? Black : White;
+bool Board::hasWon(PlayerColor color) {
+    PlayerColor other = color == White ? Black : White;
     for (Cell *cell : m_board) {
         if (cell->getPiece()->getColor() == other) {
-            if (cell->getPiece()->type == King) {
-                if (cell->getPiece()->possibleMove()->empty())
+            if (cell->getPiece()->type == TKing)
+                if (cell->getPiece()->possibleMoves()->empty())
                     return true;
 
             return false;
@@ -58,20 +58,25 @@ bool Board::hasWon(ColorPlayer color) {
 
 void Board::printBoard() {
     for (int i = 0; i < m_boardSize; i++) {
-        for (int j = 0; j < m_boardsize; j++)
+        for (int j = 0; j < m_boardSize; j++)
             std::cout << "|---";
 
-        std::cout << "|" << endl;
+        std::cout << "|" << std::endl;
 
-        for (int j = 0; j < m_boardSize; j++)
-            std::cout << "| " << m_board[i * m_boardSize + j]->getPiece()->type
-                << " ";
+        for (int j = 0; j < m_boardSize; j++) {
+            if (m_board[i * m_boardSize + j]->getPiece() == NULL)
+                std::cout << "|   ";
 
-        std::cout << "|" << endl;
+            else
+                std::cout << "| " << m_board[i * m_boardSize + j]->getPiece()->type
+                    << " ";
+        }
+
+        std::cout << "|" << std::endl;
     }
 
-    for (int j = 0; j < m_boardsize; j++)
+    for (int j = 0; j < m_boardSize; j++)
         std::cout << "|---";
 
-    std::cout << "|" << endl;
+    std::cout << "|" << std::endl;
 }

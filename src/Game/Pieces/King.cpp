@@ -1,23 +1,23 @@
 #include "King.h"
+#include "../Board.h"
+#include "../Cell.h"
 
 King::King(Cell *cell, Board *board, PlayerColor color) 
 : BasePiece(cell, board, color) { }
 
-King::~King() : ~BasePiece() { }
-
 bool King::checkMove(int new_pos) {
-
+    return true;
 }
 
 bool King::move(int new_pos) {
     if (checkMove(new_pos)) {
         Cell *next_cell = m_board->getCell(new_pos);
-        if (next_cell->getState() == Busy && next_cell->getPiece()->color == m_color)
+        if (next_cell->getState() == Busy && next_cell->getPiece()->getColor() == m_color)
             return false;
 
         m_cell->setState(Free);
         m_cell = next_cell;
-        m_cell->setState(this)
+        m_cell->setState((BasePiece*)this);
 
         return true;
     }
@@ -28,6 +28,6 @@ bool King::move(int new_pos) {
 
 
 std::vector<int> *King::possibleMoves() {
-
+    return 0;
 }
 

@@ -1,4 +1,5 @@
 #include "Cell.h"
+#include <cstddef>
 
 Cell::Cell(Board *board, int position) {
     m_board = board;
@@ -12,32 +13,9 @@ Cell::Cell(Board *board, int position, PieceType type, PlayerColor color) {
     m_position = position;
     m_state = Busy;
     switch(type) {
-        case Pawn:
-            m_piece = new Pawn(color);
-            break;
-
-        case Rook:
-            m_piece = new Rook(color);
-            break;
-
-        case Knight:
-            m_piece = new Knight(color);
-            break;
-
-        case Bishop:
-            m_piece = new Bishop(color);
-            break;
-
-        case Queen:
-            m_piece = new Queen(color);
-            break;
-
-        case King:
-            m_piece = new King(color);
-            break;
-
         default:
             // Throw error unknown type
+            m_piece = new King(this, board, color);
             break;
     }
 }

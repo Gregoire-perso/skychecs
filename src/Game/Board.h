@@ -1,14 +1,16 @@
 #ifndef BOARD_H
 #define BOARD_H
+#include "Enums.h"
 #include "Cell.h"
-#include "Pieces/BasePiece.h"
+#include <iostream>
 
-enum PlayerColor { White, Black };
+
+class Cell;
 
 class Board {
 private:
-    int m_boardSize = 8;
-    Cell *m_board[boardSize * boardSize];
+    static const int m_boardSize = 8;
+    Cell *m_board[m_boardSize * m_boardSize];
 
 public:
     Board();
