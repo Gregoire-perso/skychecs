@@ -7,12 +7,7 @@ Queen::Queen(Cell *cell, Board *board, PlayerColor color)
     m_type = TQueen;
 }
 
-bool Queen::checkMove(int new_pos) {
-    return true;
-}
-
 
 std::vector<int> *Queen::possibleMoves() {
     return 0;
 }
-

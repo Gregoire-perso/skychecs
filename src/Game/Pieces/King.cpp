@@ -7,12 +7,7 @@ King::King(Cell *cell, Board *board, PlayerColor color)
     m_type = TKing;
 }
 
-bool King::checkMove(int new_pos) {
-    return true;
-}
-
 
 std::vector<int> *King::possibleMoves() {
     return 0;
 }
-

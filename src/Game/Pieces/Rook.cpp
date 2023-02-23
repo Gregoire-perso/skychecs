@@ -7,12 +7,7 @@ Rook::Rook(Cell *cell, Board *board, PlayerColor color)
     m_type = TRook;
 }
 
-bool Rook::checkMove(int new_pos) {
-    return true;
-}
-
 
 std::vector<int> *Rook::possibleMoves() {
     return 0;
 }
-

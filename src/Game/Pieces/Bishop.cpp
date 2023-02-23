@@ -7,12 +7,7 @@ Bishop::Bishop(Cell *cell, Board *board, PlayerColor color)
     m_type = TBishop;
 }
 
-bool Bishop::checkMove(int new_pos) {
-    return true;
-}
-
 
 std::vector<int> *Bishop::possibleMoves() {
     return 0;
 }
-

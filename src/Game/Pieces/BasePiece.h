@@ -8,7 +8,7 @@ protected:
     PieceType m_type;
     Board *m_board;
     Cell *m_cell;
-    virtual bool checkMove(int new_pos) = 0;
+    virtual bool checkMove(int new_pos);
     PlayerColor m_color;
 
 public:

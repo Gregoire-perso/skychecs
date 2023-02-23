@@ -11,11 +11,24 @@ BasePiece::~BasePiece() {
     m_cell->setState(Free);
 }
 
+/*
+ * Check if the King can move in to the next position
+ * This function check if the given position is in its possible positions
+ */
+bool BasePiece::checkMove(int new_pos) {
+    std::vector<int> *moves = possibleMoves();
+
+    for (int i : *moves)
+        if (i == new_pos)
+            return true;
+
+    return false;
+}
+
+
 bool BasePiece::move(int new_pos) {
     if (checkMove(new_pos)) {
         Cell *next_cell = m_board->getCell(new_pos);
-        if (next_cell->getState() == Busy && next_cell->getPiece()->getColor() == m_color)
-            return false;
 
         m_cell->setState(Free);
         m_cell = next_cell;

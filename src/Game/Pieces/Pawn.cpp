@@ -7,12 +7,7 @@ Pawn::Pawn(Cell *cell, Board *board, PlayerColor color)
     m_type = TPawn;
 }
 
-bool Pawn::checkMove(int new_pos) {
-    return true;
-}
-
 
 std::vector<int> *Pawn::possibleMoves() {
     return 0;
 }
-
