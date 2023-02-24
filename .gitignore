@@ -2,7 +2,8 @@
 skychecs
 
 # Generated doc files
-doc/
+doc/html/
+doc/latex/
 
 
 
