@@ -3,11 +3,15 @@
 #include <vector>
 #include "BasePiece.h"
 #include "../Enums.h"
+#include "Queen.h"
 
 class Pawn : public BasePiece {
+private:
+    void promoteQueen();
+
 public:
     Pawn(Cell *cell, Board *board, PlayerColor color);
-    bool move(int new_pos);
+    bool move(int new_pos) override;
     std::vector<int> possibleMoves();
 };
 

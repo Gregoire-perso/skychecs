@@ -7,7 +7,6 @@
 class Knight : public BasePiece {
 public:
     Knight(Cell *cell, Board *board, PlayerColor color);
-    bool move(int new_pos);
     std::vector<int> possibleMoves();
 };
 
