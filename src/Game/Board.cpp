@@ -57,11 +57,23 @@ bool Board::hasWon(PlayerColor color) {
 }
 
 void Board::printBoard() {
+    // Print the letters
+    std::cout << "   ";
+    for (int j = 0; j < boardSize; j++)
+        std::cout << "| " << (char) (j + 65) << " ";
+
+    std::cout << "|" << std::endl;
+
     for (int i = 0; i < boardSize; i++) {
+        // Print the upper line
+        // Print the space for the numbers
+        std::cout << "---";
         for (int j = 0; j < boardSize; j++)
             std::cout << "|---";
 
         std::cout << "|" << std::endl;
+
+        std::cout << " " << (i + 1) << " ";
 
         for (int j = 0; j < boardSize; j++) {
             if (m_board[i * boardSize + j]->getPiece() == NULL)
@@ -75,6 +87,7 @@ void Board::printBoard() {
         std::cout << "|" << std::endl;
     }
 
+    std::cout << "---";
     for (int j = 0; j < boardSize; j++)
         std::cout << "|---";
 
