@@ -1,6 +1,7 @@
 #include "Pawn.h"
 #include "../Board.h"
 #include "../Cell.h"
+#include "../Utils.h"
 
 Pawn::Pawn(Cell *cell, Board *board, PlayerColor color) 
 : BasePiece(cell, board, color) {
@@ -28,8 +29,7 @@ bool Pawn::move(int new_pos) {
 
 std::vector<int> Pawn::possibleMoves() {
     int cur_cell = m_cell->getPosition();
-    int cur_x = cur_cell % Board::boardSize;
-    int cur_y = cur_cell / Board::boardSize;
+    int [cur_x, cur_y] = Utils::to_coord(cur_cell);
     std::vector<int> candidates;
 
     int step;
@@ -45,21 +45,21 @@ std::vector<int> Pawn::possibleMoves() {
 
         if (cell->getState() == Busy)
             if (cell->getPiece()->getColor() != m_color)
-                candidates.push_back((cur_y + step) * Board::boardSize + cur_x);
+                candidates.push_back(Utils::to_raw(cur_x, cur_y + step));
         else
-            candidates.push_back((cur_y + step) * Board::boardSize + cur_x);
+            candidates.push_back(Utils::to_raw(cur_x, cur_y + step));
 
         // Test the cell in diagonal
         if (cur_x - 1 >= 0) {
             *cell = m_board->getCell((cur_y + step) * Board::boardSize + cur_x - 1);
             if (cell->getState() == Busy && cell->getPiece()->getColor() != m_color)
-                candidates.push_back((cur_y + step) * Board::boardSize + cur_x - 1);
+                candidates.push_back(Utils::to_raw(cur_x - 1, cur_y + step));
         }
 
         if (cur_x + 1 < Board::boardSize) {
             *cell = m_board->getCell((cur_y + step) * Board::boardSize + cur_x + 1);
             if (cell->getState() == Busy && cell->getPiece()->getColor() != m_color)
-                candidates.push_back((cur_y + step) * Board::boardSize + cur_x + 1);
+                candidates.push_back(Utils::to_raw(cur_x + 1, cur_y + step));
         }
     }
 
