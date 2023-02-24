@@ -1,6 +1,9 @@
 # My files
 skychecs
 
+# Generated doc files
+doc/
+
 
 
 # C++ objects and libs
