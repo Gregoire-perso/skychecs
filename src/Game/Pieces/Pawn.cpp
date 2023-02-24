@@ -11,8 +11,19 @@ void Pawn::promoteQueen() {
 
 }
 
-void Pawn::move() {
+bool Pawn::move(int new_pos) {
+    if (BasePiece::move(new_pos)) {
+        int cur_pos = m_cell->getPosition();
+        int cur_y = cur_cell / Board::boardSize;
 
+        if (cur_y == 0 || cur_y == Board::boardSize)
+            promoteQueen();
+
+        return true;
+    }
+    
+    else
+        return false;
 }
 
 std::vector<int> Pawn::possibleMoves() {
