@@ -11,7 +11,7 @@ Bishop::Bishop(Cell *cell, Board *board, PlayerColor color)
 
 std::vector<int> Bishop::possibleMoves() {
     int cur_cell = m_cell->getPosition();
-    int [cur_x, cur_y] = Utils::to_coord(cur_cell);
+    auto [cur_x, cur_y] = Utils::to_coord(cur_cell);
     std::vector<int> candidates;
 
     // North-West diagonal
@@ -23,7 +23,7 @@ std::vector<int> Bishop::possibleMoves() {
     }
 
     // North-East diagonal
-    int x = cur_x + 1, y = cur_y - 1;
+    x = cur_x + 1, y = cur_y - 1;
     while (x >= 0 && x < Board::boardSize && 
            y >= 0 && y < Board::boardSize &&
            m_board->getCell(Utils::to_raw(x, y))->getState() != Busy) {
@@ -31,7 +31,7 @@ std::vector<int> Bishop::possibleMoves() {
     }
 
     // South-West diagonal
-    int x = cur_x - 1, y = cur_y + 1;
+    x = cur_x - 1, y = cur_y + 1;
     while (x >= 0 && x < Board::boardSize && 
            y >= 0 && y < Board::boardSize &&
            m_board->getCell(Utils::to_raw(x, y))->getState() != Busy) {
@@ -39,7 +39,7 @@ std::vector<int> Bishop::possibleMoves() {
     }
 
     // South-East diagonal
-    int x = cur_x + 1, y = cur_y + 1;
+    x = cur_x + 1, y = cur_y + 1;
     while (x >= 0 && x < Board::boardSize && 
            y >= 0 && y < Board::boardSize &&
            m_board->getCell(Utils::to_raw(x, y))->getState() != Busy) {

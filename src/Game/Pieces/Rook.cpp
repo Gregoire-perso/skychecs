@@ -1,6 +1,7 @@
 #include "Rook.h"
 #include "../Board.h"
 #include "../Cell.h"
+#include "../Utils.h"
 
 Rook::Rook(Cell *cell, Board *board, PlayerColor color) 
 : BasePiece(cell, board, color) {
@@ -10,7 +11,7 @@ Rook::Rook(Cell *cell, Board *board, PlayerColor color)
 
 std::vector<int> Rook::possibleMoves() {
     int cur_cell = m_cell->getPosition();
-    int [cur_x, cur_y] = Utils::to_coord(cur_cell);
+    auto [cur_x, cur_y] = Utils::to_coord(cur_cell);
     std::vector<int> candidates;
 
     // North
@@ -22,7 +23,7 @@ std::vector<int> Rook::possibleMoves() {
     }
 
     // South
-    int x = cur_x, y = cur_y + 1;
+    x = cur_x, y = cur_y + 1;
     while (x >= 0 && x < Board::boardSize && 
            y >= 0 && y < Board::boardSize &&
            m_board->getCell(Utils::to_raw(x, y))->getState() != Busy) {
@@ -30,7 +31,7 @@ std::vector<int> Rook::possibleMoves() {
     }
 
     // East
-    int x = cur_x + 1, y = cur_y;
+    x = cur_x + 1, y = cur_y;
     while (x >= 0 && x < Board::boardSize && 
            y >= 0 && y < Board::boardSize &&
            m_board->getCell(Utils::to_raw(x, y))->getState() != Busy) {
@@ -38,7 +39,7 @@ std::vector<int> Rook::possibleMoves() {
     }
 
     // West
-    int x = cur_x - 1, y = cur_y;
+    x = cur_x - 1, y = cur_y;
     while (x >= 0 && x < Board::boardSize && 
            y >= 0 && y < Board::boardSize &&
            m_board->getCell(Utils::to_raw(x, y))->getState() != Busy) {

@@ -33,7 +33,7 @@ Cell *Board::getCell(int position) {
     return m_board[position];
 }
 
-bool Board::moveCell(int before, int after) {
+bool Board::movePiece(int before, int after) {
     if (m_board[before]->getState() != Busy)
         return false;
 
@@ -46,7 +46,7 @@ bool Board::hasWon(PlayerColor color) {
     for (Cell *cell : m_board) {
         if (cell->getPiece()->getColor() == other) {
             if (cell->getPiece()->getType() == TKing)
-                if (cell->getPiece()->possibleMoves()->empty())
+                if (cell->getPiece()->possibleMoves().empty())
                     return true;
 
             return false;

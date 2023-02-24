@@ -5,13 +5,9 @@
 namespace Utils
 {
 
-int to_raw(int x, int y) {
-    return y * Board::boardSize + x;
-}
+int to_raw(int x, int y);
 
-std::pair<int, int> to_coord(int raw) {
-    return { raw % Board::boardSize, raw / Board::boardSize };
-}
+std::pair<int, int> to_coord(int raw);
 
 }
 

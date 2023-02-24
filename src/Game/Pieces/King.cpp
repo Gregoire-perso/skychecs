@@ -11,7 +11,7 @@ King::King(Cell *cell, Board *board, PlayerColor color)
 
 std::vector<int> King::possibleMoves() {
     int cur_cell = m_cell->getPosition();
-    int [cur_x, cur_y] = Utils::to_coord(cur_cell);
+    auto [cur_x, cur_y] = Utils::to_coord(cur_cell);
     std::vector<int> candidates;
 
     // Add in-board candidates
@@ -25,7 +25,7 @@ std::vector<int> King::possibleMoves() {
             candidates.push_back(Utils::to_raw(cur_x + 1, cur_y - 1));
     }
 
-    if (cur_y + 1 < Baord::boardSize) {
+    if (cur_y + 1 < Board::boardSize) {
         candidates.push_back(Utils::to_raw(cur_x, cur_y + 1));
 
         if (cur_x - 1 >= 0)
@@ -54,10 +54,9 @@ std::vector<int> King::possibleMoves() {
             continue;
 
         for (int j : cell->getPiece()->possibleMoves()) {
-            for (std::vector<int>::iterator it = candidates.begin(), int l = 0;
-                it != candidates.end(); ++it, l++) {
-                if (j == it)
-                    candidates.erase(l)
+            for (std::vector<int>::iterator it = candidates.begin(); it != candidates.end(); ++it) {
+                if (j == *it)
+                    candidates.erase(it);
             }
         }
     }

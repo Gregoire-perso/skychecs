@@ -2,8 +2,14 @@
 #include <QApplication>
 #include "Game/Board.h"
 
+using namespace std;
+
 void startGame() {
     Board *board = new Board();
+    board->printBoard();
+    cout << board->movePiece(8, 16) << endl;
+    cout << board->movePiece(8, 16) << endl;
+    cout << board->movePiece(16, 17) << endl;
     board->printBoard();
 }
 

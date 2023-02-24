@@ -1,4 +1,5 @@
 #include "BasePiece.h"
+#include "../Board.h"
 #include "../Cell.h"
 
 BasePiece::BasePiece(Cell *cell, Board *board, PlayerColor color) {
@@ -42,10 +43,11 @@ bool BasePiece::move(int new_pos) {
 // Remove candidates that point to a friendly busy cell
 void BasePiece::pruneCandidates(std::vector<int> *candidates) {
     // Check if the candidates cells are busy or not
-    for (std::vector<int>::iterator it = candidates->begin(), int i = 0;
-            it != candidates->end(); ++it, i++) {
-        Cell *cell = m_board->getCell(it);
+    for (std::vector<int>::iterator it = candidates->begin();
+            it != candidates->end(); ++it) {
+        Cell *cell = m_board->getCell(*it);
         if (cell->getState() == Busy && cell->getPiece()->getColor() == m_color)
-            candidates->erase(i);
+            candidates->erase(it);
     }
 }
+
