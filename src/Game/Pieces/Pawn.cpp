@@ -42,12 +42,7 @@ std::vector<int> Pawn::possibleMoves() {
     if (cur_y + step < 0 || cur_y + step > Board::boardSize) {
         // Test the cell in front of the pawn
         Cell *cell = m_board->getCell((cur_y + step) * Board::boardSize + cur_x);
-
-        if (cell->getState() == Busy)
-            if (cell->getPiece()->getColor() != m_color)
-                candidates.push_back(Utils::to_raw(cur_x, cur_y + step));
-        else
-            candidates.push_back(Utils::to_raw(cur_x, cur_y + step));
+        candidates.push_back(Utils::to_raw(cur_x, cur_y + step));
 
         // Test the cell in diagonal
         if (cur_x - 1 >= 0) {
@@ -62,6 +57,8 @@ std::vector<int> Pawn::possibleMoves() {
                 candidates.push_back(Utils::to_raw(cur_x + 1, cur_y + step));
         }
     }
+
+    pruneCandidates(&candidates);
 
     return candidates;
 }

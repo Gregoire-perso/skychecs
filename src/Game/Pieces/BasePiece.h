@@ -11,6 +11,9 @@ protected:
     virtual bool checkMove(int new_pos);
     PlayerColor m_color;
 
+    // Remove candidates that point to a fiendly busy cell
+    void pruneCandidates(std::vector<int> *candidates);
+
 public:
     BasePiece(Cell *cell, Board *board, PlayerColor color);
     virtual ~BasePiece();

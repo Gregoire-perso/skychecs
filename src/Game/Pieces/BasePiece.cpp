@@ -38,3 +38,14 @@ bool BasePiece::move(int new_pos) {
     else
         return false;
 }
+
+// Remove candidates that point to a friendly busy cell
+void BasePiece::pruneCandidates(std::vector<int> *candidates) {
+    // Check if the candidates cells are busy or not
+    for (std::vector<int>::iterator it = candidates->begin(), int i = 0;
+            it != candidates->end(); ++it, i++) {
+        Cell *cell = m_board->getCell(it);
+        if (cell->getState() == Busy && cell->getPiece()->getColor() == m_color)
+            candidates->erase(i);
+    }
+}

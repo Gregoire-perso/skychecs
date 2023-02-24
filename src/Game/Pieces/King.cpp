@@ -41,14 +41,7 @@ std::vector<int> King::possibleMoves() {
     if (cur_x + 1 < Board::boardSize)
         candidates.push_back(Utils::to_raw(cur_x + 1, cur_y));
 
-
-    // Check if the candidates cells are busy or not
-    for (std::vector<int>::iterator it = candidates.begin(), int i = 0;
-            it != candidates.end(); ++it, i++) {
-        Cell *cell = m_board->getCell(it);
-        if (cell->getState() == Busy && cell->getPiece()->getColor() == m_color)
-            candidates.erase(i);
-    }
+    pruneCandidates(&candidates);
 
     // Check if the remaining candidates are in danger for the king (e.g. an
     // enemy piece can ate the king in the next position)
