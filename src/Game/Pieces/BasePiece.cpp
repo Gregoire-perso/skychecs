@@ -16,9 +16,7 @@ BasePiece::~BasePiece() {
  * This function check if the given position is in its possible positions
  */
 bool BasePiece::checkMove(int new_pos) {
-    std::vector<int> *moves = possibleMoves();
-
-    for (int i : *moves)
+    for (int i : possibleMoves())
         if (i == new_pos)
             return true;
 

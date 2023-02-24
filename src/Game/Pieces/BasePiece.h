@@ -16,7 +16,7 @@ public:
     virtual ~BasePiece();
     Cell *getCell() { return m_cell; };
     virtual bool move(int new_pos);
-    virtual std::vector<int> *possibleMoves() = 0;
+    virtual std::vector<int> possibleMoves() = 0;
     PlayerColor getColor() { return m_color; };
     PieceType getType() { return m_type; };
 };
