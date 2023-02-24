@@ -14,7 +14,7 @@ std::vector<int> King::possibleMoves() {
     int cur_y = cur_cell / Board::boardSize;
     std::vector<int> candidates;
 
-    // Add in board candidates
+    // Add in-board candidates
     if (cur_y - 1 >= 0) {
         candidates.push_back((cur_y - 1) * Baord::boardSize + cur_x);
 
@@ -50,6 +50,8 @@ std::vector<int> King::possibleMoves() {
             candidates.erase(i);
     }
 
+    // Check if the remaining candidates are in danger for the king (e.g. an
+    // enemy piece can ate the king in the next position)
     for (int i = 0; i < Board::boardSize * Board::boardSize; i++) {
         Cell *cell = m_board->getCell(i);
         if (cell->getState() != Busy)
