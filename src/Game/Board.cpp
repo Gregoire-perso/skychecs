@@ -6,25 +6,25 @@ Board::Board() {
     int i;
     
     // Init black lines
-    for(i = 0; i < m_boardSize; i++) {
+    for(i = 0; i < boardSize; i++) {
         m_board[i] = new Cell(this, i, firstLine[i], Black);
     }
 
-    for(; i < 2 * m_boardSize; i++) {
+    for(; i < 2 * boardSize; i++) {
         m_board[i] = new Cell(this, i, TPawn, Black);
     }
 
     // Init empty lines
-    for(; i < (m_boardSize - 2) * m_boardSize; i++) {
+    for(; i < (boardSize - 2) * boardSize; i++) {
         m_board[i] = new Cell(this, i);
     }
 
     // Init white lines
-    for(; i < (m_boardSize - 1) * m_boardSize; i++) {
+    for(; i < (boardSize - 1) * boardSize; i++) {
         m_board[i] = new Cell(this, i, TPawn, White);
     }
 
-    for(; i < m_boardSize * m_boardSize; i++) {
+    for(; i < boardSize * boardSize; i++) {
         m_board[i] = new Cell(this, i, firstLine[-(i - 63)], White);
     }
 }
@@ -57,25 +57,25 @@ bool Board::hasWon(PlayerColor color) {
 }
 
 void Board::printBoard() {
-    for (int i = 0; i < m_boardSize; i++) {
-        for (int j = 0; j < m_boardSize; j++)
+    for (int i = 0; i < boardSize; i++) {
+        for (int j = 0; j < boardSize; j++)
             std::cout << "|---";
 
         std::cout << "|" << std::endl;
 
-        for (int j = 0; j < m_boardSize; j++) {
-            if (m_board[i * m_boardSize + j]->getPiece() == NULL)
+        for (int j = 0; j < boardSize; j++) {
+            if (m_board[i * boardSize + j]->getPiece() == NULL)
                 std::cout << "|   ";
 
             else
-                std::cout << "| " << m_board[i * m_boardSize + j]->getPiece()->getType()
+                std::cout << "| " << m_board[i * boardSize + j]->getPiece()->getType()
                     << " ";
         }
 
         std::cout << "|" << std::endl;
     }
 
-    for (int j = 0; j < m_boardSize; j++)
+    for (int j = 0; j < boardSize; j++)
         std::cout << "|---";
 
     std::cout << "|" << std::endl;

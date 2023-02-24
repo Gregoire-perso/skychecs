@@ -9,10 +9,10 @@ class Cell;
 
 class Board {
 private:
-    static const int m_boardSize = 8;
-    Cell *m_board[m_boardSize * m_boardSize];
+    Cell *m_board[boardSize * boardSize];
 
 public:
+    static const int boardSize = 8;
     Board();
     Cell *getCell(int position);
     // Return true is the move is done succesfully
