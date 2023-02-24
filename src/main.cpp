@@ -4,13 +4,36 @@
 
 using namespace std;
 
+void pawnTest(Board *board) {
+
+    cout << "PAWN MOVES TEST" << endl;
+    board->printBoard();
+    cout << "Expected true  : " << board->movePiece(8, 16) << endl;
+    cout << "Expected false : " << board->movePiece(8, 16) << endl;
+    cout << "Expected false : " << board->movePiece(16, 17) << endl;
+    cout << "Expected true  : " << board->movePiece(16, 24) << endl;
+    board->printBoard();
+
+    cout << endl << endl << endl;
+}
+
+void rookTest(Board *board) {
+
+    cout << "ROOK MOVES TEST" << endl;
+    board->printBoard();
+    cout << "Expected true  : " << board->movePiece(0, 16) << endl;
+    cout << "Expected false : " << board->movePiece(16, 24) << endl;
+    cout << "Expected false : " << board->movePiece(16, 25) << endl;
+    //cout << "Expected true  : " << board->movePiece(16, 22) << endl;
+    board->printBoard();
+
+    cout << endl << endl << endl;
+}
+
 void startGame() {
     Board *board = new Board();
-    board->printBoard();
-    cout << board->movePiece(8, 16) << endl;
-    cout << board->movePiece(8, 16) << endl;
-    cout << board->movePiece(16, 17) << endl;
-    board->printBoard();
+    pawnTest(board);
+    rookTest(board);
 }
 
 int main(int argc, char *argv[])
@@ -21,6 +44,7 @@ int main(int argc, char *argv[])
 //    return a.exec();
     (void) argc;
     (void) argv;
+    cout << boolalpha;
     startGame();
     return 0;
 }
