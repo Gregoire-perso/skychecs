@@ -8,6 +8,10 @@ Rook::Rook(Cell *cell, Board *board, PlayerColor color)
 }
 
 
-std::vector<int> *Rook::possibleMoves() {
-    return 0;
+std::vector<int> Rook::possibleMoves() {
+    int cur_cell = m_cell->getPosition();
+    int cur_x = cur_cell % Board::boardSize;
+    int cur_y = cur_cell / Board::boardSize;
+    std::vector<int> candidates;
+
 }
