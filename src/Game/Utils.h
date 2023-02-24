@@ -6,8 +6,8 @@ namespace Utils
 {
 
 int to_raw(int x, int y);
-
 std::pair<int, int> to_coord(int raw);
+void print_vector(std::vector<int>);
 
 }
 
