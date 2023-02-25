@@ -60,5 +60,6 @@ void Cell::setState(BasePiece *piece) {
         delete m_piece;
 
     m_piece = piece;
+    m_state = Busy;
 }
 
