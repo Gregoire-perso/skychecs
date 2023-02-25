@@ -60,7 +60,7 @@ void Board::printBoard() {
     // Print the letters
     std::cout << "   ";
     for (int j = 0; j < boardSize; j++)
-        std::cout << "| " << (char) (j + 65) << " ";
+        std::cout << "| " << j << " ";
 
     std::cout << "|" << std::endl;
 
@@ -73,7 +73,7 @@ void Board::printBoard() {
 
         std::cout << "|" << std::endl;
 
-        std::cout << " " << (i + 1) << " ";
+        printf("%02d ", i * 8);
 
         for (int j = 0; j < boardSize; j++) {
             if (m_board[i * boardSize + j]->getPiece() == NULL)
