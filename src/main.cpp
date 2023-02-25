@@ -8,10 +8,10 @@ void pawnTest(Board *board) {
 
     cout << "PAWN MOVES TEST" << endl;
     board->printBoard();
-    cout << "Expected true  : " << board->movePiece(8, 16) << endl;
-    cout << "Expected false : " << board->movePiece(8, 16) << endl;
-    cout << "Expected false : " << board->movePiece(16, 17) << endl;
-    cout << "Expected true  : " << board->movePiece(16, 24) << endl;
+    cout << " 8 -> 16 = true : " << board->movePiece(8, 16) << endl;
+    cout << " 8 -> 16 = false: " << board->movePiece(8, 16) << endl;
+    cout << "16 -> 17 = false: " << board->movePiece(16, 17) << endl;
+    cout << "16 -> 24 = true : " << board->movePiece(16, 24) << endl;
     board->printBoard();
 
     cout << endl << endl << endl;
@@ -21,10 +21,10 @@ void rookTest(Board *board) {
 
     cout << "ROOK MOVES TEST" << endl;
     board->printBoard();
-    cout << "Expected true  : " << board->movePiece(0, 16) << endl;
-    cout << "Expected false : " << board->movePiece(16, 24) << endl;
-    cout << "Expected false : " << board->movePiece(16, 25) << endl;
-    //cout << "Expected true  : " << board->movePiece(16, 22) << endl;
+    cout << " 0 -> 16 = true : " << board->movePiece(0, 16) << endl;
+    cout << "16 -> 24 = false: " << board->movePiece(16, 24) << endl;
+    cout << "16 -> 25 = false: " << board->movePiece(16, 25) << endl;
+    cout << "16 -> 22 = true : " << board->movePiece(16, 22) << endl;
     board->printBoard();
 
     cout << endl << endl << endl;
