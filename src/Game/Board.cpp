@@ -30,6 +30,9 @@ Board::Board() {
 }
 
 Cell *Board::getCell(int position) {
+    if (position < 0 || position >= boardSize * boardSize)
+        return NULL;
+
     return m_board[position];
 }
 
