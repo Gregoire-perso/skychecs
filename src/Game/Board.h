@@ -12,7 +12,7 @@ class Board {
 public:
     static const int boardSize = 8;
     Board();
-    Board(string filename);
+    Board(std::string filename);
     Cell *getCell(int position);
     // Return true is the move is done succesfully
     // Check if the move is illegal (outside the bound, not possible with this
@@ -20,7 +20,7 @@ public:
     bool movePiece(int before, int after);
     bool hasWon(PlayerColor color);
     void printBoard();
-    bool serialize(string filename);
+    bool serialize(std::string filename);
 
 private:
 

@@ -15,7 +15,7 @@ public:
     Game(int number);
     void save();
     bool move(int before, int after);
-}
+};
 
 
 #endif
