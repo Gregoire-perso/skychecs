@@ -12,10 +12,6 @@ BasePiece::~BasePiece() {
     m_cell->setState(Free);
 }
 
-/*
- * Check if the King can move in to the next position
- * This function check if the given position is in its possible positions
- */
 bool BasePiece::checkMove(int new_pos) {
     for (int i : possibleMoves())
         if (i == new_pos)
