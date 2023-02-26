@@ -7,7 +7,8 @@
 
 class Pawn : public BasePiece {
 private:
-    void promoteQueen();
+    void m_promoteQueen();
+    bool m_firstMove = true;
 
 public:
     Pawn(Cell *cell, Board *board, PlayerColor color);

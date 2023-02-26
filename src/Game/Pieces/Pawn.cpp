@@ -20,6 +20,8 @@ bool Pawn::move(int new_pos) {
         if (cur_y == 0 || cur_y == Board::boardSize)
             promoteQueen();
 
+        m_firstMove = false;
+
         return true;
     }
     
@@ -42,7 +44,13 @@ std::vector<int> Pawn::possibleMoves() {
     if (cur_y + step >= 0 || cur_y + step < Board::boardSize) {
         // Test the cell in front of the pawn
         Cell *cell = m_board->getCell(Utils::to_raw(cur_x, cur_y + step));
-        candidates.push_back(Utils::to_raw(cur_x, cur_y + step));
+
+        if (cell->getState() != Busy) {
+            candidates.push_back(Utils::to_raw(cur_x, cur_y + step));
+
+            if (m_firstMove && m_board->getCell(Utils::to_raw(cur_x, cur_y + 2 * step))->getState() != Busy)
+                candidates.push_back(Utils::to_raw(cur_x, cur_y + 2 * step));
+        }
 
         // Test the cell in diagonal
         if (cur_x - 1 >= 0) {
