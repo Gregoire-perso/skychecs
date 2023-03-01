@@ -7,7 +7,7 @@
 
 class Pawn : public BasePiece {
 private:
-    void m_promoteQueen();
+    void promoteQueen();
     bool m_firstMove = true;
 
 public:
