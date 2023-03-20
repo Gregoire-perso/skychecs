@@ -11,3 +11,6 @@ To do so, you just have to compile the project using `qmake` and the
 `skychecs.pro` file. It will store all compile files in the `build/` directory,
 and if everything is done without errors, you can start a game by launching the
 executable. 
+
+# Spoiler alert
+This project will probably never be finished :eyes:
