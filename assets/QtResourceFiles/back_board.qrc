@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="assets/images/">
+    <file>chessBoard.svg</file>
+  </qresource>
+</RCC>
